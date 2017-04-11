@@ -1,0 +1,8 @@
+applications:
+- path: .
+  memory: 256M
+  instances: 1
+  domain: mybluemix.net
+  name: bluemix-chat-watson-hyjyang
+  host: bluemix-chat-watson-hyjyang
+  disk_quota: 1024M
