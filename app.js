@@ -25,28 +25,28 @@ var appEnv = cfenv.getAppEnv();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
-var watson = require('watson-developer-cloud');
-var language_translator = watson.language_translator({
-  version: 'v2'
-});
+//var watson = require('watson-developer-cloud');
+//var language_translator = watson.language_translator({
+//  version: 'v2'
+//});
  
 io.on('connection', function(socket) {
     // 채팅 사용자가 P 로 메시지를 보내면 모든 사용자에게 전송
     socket.on('P', function(msg) {
         io.emit('P', msg);
-        language_translator.translate({
-		    text: msg,
-		    source: 'en',
-		    target: 'fr'
-		  }, function(err, translation) {
-		    if (err)
-		      console.log(err);
-		    else{
-		    	console.log(translation);
-		    	io.emit('P', 'FR : ' + translation.translations[0].translation);
-		    }
-		      
-		});
+//        language_translator.translate({
+//		    text: msg,
+//		    source: 'en',
+//		    target: 'fr'
+//		  }, function(err, translation) {
+//		    if (err)
+//		      console.log(err);
+//		    else{
+//		    	console.log(translation);
+//		    	io.emit('P', 'FR : ' + translation.translations[0].translation);
+//		    }
+//		      
+//		});
     });
 });
  
